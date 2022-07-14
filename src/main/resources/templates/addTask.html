@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="taskManagerContent">
+    <div class="row mt-3">
+        <div class="col-12">
+            <form th:action="@{'/tasks/addTask'}" method="post">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label> TASK NAME: </label>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <input type = "text" class = "form-control" name = "name" placeholder="Task Name...">
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>TASK DEADLINE DATE: </label>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <input type = "date" class = "form-control" name = "deadline" placeholder="mm/dd/yyyy">
+
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button class = "btn btn-success">Add Task</button>
+
+                    </div>
+                </div>
+            </form>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</html>

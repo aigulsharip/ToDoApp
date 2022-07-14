@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="taskManagerContent">
+    <div class="row mt-3">
+        <div class="col-12" th:if = "${task!= null}">
+            <form th:action="@{'/tasks/saveTask'}" method="post" >
+                <input type = "hidden"  name = "id"  th:value="${task.id}">
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label> TASK NAME: </label>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <input type = "text" class = "form-control" name = "name" placeholder="Task Name..." th:value="${task.name}">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>TASK DEADLINE DATE: </label>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <input type = "date" class = "form-control" name = "deadline" placeholder="mm/dd/yyyy" th:value="${task.deadlineDate}">
+                    </div>
+                </div>
+
+<!--                <div class="row mt-3">-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="form-check">-->
+<!--                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name = "status" th:field="*{task.isCompleted}" th:value="${task.isCompleted}">-->
+<!--                            <label class="form-check-label" for="flexCheckDefault">-->
+<!--                                Completed?-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button class = "btn btn-success">Save Task</button>
+                        <button class = "btn btn-primary" th:formaction="${'/tasks/completeTask'}" method="post">Complete Task</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            Delete Task
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form th:action="${'/tasks/deleteTask'}" method="post">
+                        <input type = "hidden"  name = "id"  th:value="${task.id}">
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Delete Task</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                <button type = "submit" class="btn btn-danger">Yes</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</html>
