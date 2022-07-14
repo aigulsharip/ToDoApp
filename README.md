@@ -8,7 +8,8 @@ I have used for Thymeleaf for displaying the HTML pages.
 
 
 Main page of ToDoApp:
-![image](https://user-images.githubusercontent.com/50133530/178912284-ac13020d-2a4b-438b-80f7-590db061e500.png)
+![image](https://user-images.githubusercontent.com/50133530/178912745-5b53c9c8-7f3a-4fb2-b7e6-931a1fbf0ab9.png)
+
 
 
 Details page of each task:
